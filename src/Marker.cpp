@@ -1,66 +1,49 @@
-#include "attribute.h"
+/*
+ * Marker class implementation
+ */
+
+
 #include "Marker.h"
 
-Marker::Marker () {
-  int i;
-  for (i = 0; i < 6; i++) {
-    red_bits[i] = false;
-    black_bits[i] = false;
-  }
+Marker::Marker() {
+	this->bits=0;
 }
 
-void Marker::set_marker (tmark mark, tcolor color) {
-  if ((int)mark < 0 or (int)mark > 5) throw "Invalid mark";
-
-  if (tcolor == red) // red == 0
-    red_bits[(int) mark] = true;
-
-  else if (tcolor == black) // black == 1
-    black_bits[(int) mark] = true;
-
-  else
-    {throw "Invalid color";}
+Marker::Marker(const Marker& orig) {
 }
 
-void Marker::clear_marker (tmark mark, tcolor color) {
-  if ((int)mark < 0 or (int)mark > 5) throw "Invalid mark";
-
-  if (tcolor == red) // red == 0
-    red_bits[(int) mark] = false;
-
-  else if (tcolor == black) // black == 1
-    black_bits[(int) mark] = false;
-
-  else
-    {throw "Invalid color";}
+Marker::~Marker() {
 }
 
-bool check_mark (tmark mark, tcolor color) {
-  // tmark = {0, 1, 2, 3, 4, 5}
-  if ((int)mark < 0 or (int)mark > 5) throw "Invalid mark";
-
-  if (tcolor == red) // red == 0
-    return red_bits[(int) mark];
-
-  else if (tcolor == black) // black == 1
-    return black_bits[(int) mark];
-
-  else
-    {throw "Invalid color";} // Impossible branch, just in case.
+void Marker::set_bits(int bit){
+    bits= bit;
+}
+    
+int Marker::get_bits(){
+    return bits;
 }
 
-bool check_other_mark (tmark mark, tcolor color) {
-  // tmark = {0, 1, 2, 3, 4, 5}
-  if ((int)mark < 0 or (int)mark > 5) throw "Invalid mark";
-
-  // opposite colors
-  if (tcolor == red) // red == 0
-    return black_bits[(int) mark];
-
-  // opposite colors
-  else if (tcolor == black) // black == 1
-    return red_bits[(int) mark];
-
-  else
-    {throw "Invalid color";} // Impossible branch, just in case.
+void Marker::set_marker(tmark mark, tcolor col){
+    this->bits = this->bits | 1<<(mark.get_mark()+6*col.get_color());
+     
+}
+ 
+void Marker::clear_marker(tmark mark, tcolor col){
+	this->bits = this->bits & ~1<<(mark.get_mark()+6*col.get_color());
+     
+}
+ 
+bool Marker::check_marker(tmark mark, tcolor col){
+    return this->bits & 1<<(mark.get_mark()+6*col.get_color());
+	    
+}
+   
+bool Marker::check_other_marker(tcolor col){
+	for (int i = 0; i < 6; i++){
+            if (this->bits & 1<<(i + 6*col.get_color())){
+                return true;
+            }
+        }
+    return false;
+	
 }
