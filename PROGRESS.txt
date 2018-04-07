@@ -5,3 +5,6 @@ Phase 3 - Ali Hamza and Sahil Mehta
 - Header files mutually agreed on and added.
 - CPP source files - World, Marker, Cell.
 - CPP source files - Bug.
+
++ Instruction.cpp and subclasses
++ start on the assembler
