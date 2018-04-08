@@ -4,6 +4,7 @@
 #include "stdlib.h"
 #include <vector>
 #include <exception>
+#include <fstream>
 
 bool odd(int n){
 	return !(n%2);

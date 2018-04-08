@@ -9,7 +9,6 @@ class Instruction: public World, public Bug{
   protected:
     //attributes
     World w;
-
     //functions
 
   private:
