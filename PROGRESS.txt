@@ -8,3 +8,5 @@ Phase 3 - Ali Hamza and Sahil Mehta
 - Worked on Program.cpp
 - Worked on I_mark.cpp
 - Worked on I_unmark.cpp
+- Worked on I_flip.cpp
+- Test cases for Bug, Cell, Marker

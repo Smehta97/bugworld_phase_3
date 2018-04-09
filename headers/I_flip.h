@@ -1,4 +1,4 @@
-/*
+/**
 I_flip.h
 */
 
@@ -6,6 +6,7 @@ I_flip.h
 #define _I_FLIP_H
 
 #include "attribute.h"
+#include "Instruction.h"
 
 class I_flip: public Bug, public Instruction, public tstate{
   private:
@@ -26,7 +27,7 @@ class I_flip: public Bug, public Instruction, public tstate{
 
     //functions
     void execute(Bug b);
-    void parse(string args);
+    void parse(std::string args);
 
     void flip(int p, tstate x, tstate y);
 };
