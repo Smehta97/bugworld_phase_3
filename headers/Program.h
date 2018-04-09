@@ -9,12 +9,7 @@ class Program: public Bug{
   private:
     // attributes
     int id;
-
-    //functions
-
   public:
-    //attributes
-
     //functions
     Program(string filename);
     void step(Bug b);

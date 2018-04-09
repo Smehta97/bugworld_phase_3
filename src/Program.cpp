@@ -20,7 +20,6 @@ enum instruction_values{
 }
 
 Program Program::Program(string filename){
-
   ifstream inputfile;
   inputfile.open(filename)
   if (!inputfile.is_open()) return 1;
@@ -88,6 +87,10 @@ Program Program::Program(string filename){
         break;
     }
   }
+}
 
-  return 0;
+void Program::step(Bug b){
+  if (!b.is_dead()) {
+    
+  }
 }

@@ -12,7 +12,6 @@ public:
   void parse(string args);
 
   void direction(tdirection dir, tstate dir_x, tstate dir_y);
-
 };
 
 #endif

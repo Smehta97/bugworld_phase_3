@@ -1,8 +1,7 @@
 #ifndef _BUG_H
 #define _BUG_H
 #include "attribute.h"
-class Bug
-{
+class Bug{
     private:
         tcolor color;
         tstate state;
